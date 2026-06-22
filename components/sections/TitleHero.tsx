@@ -4,7 +4,7 @@ const highlights = [
   { title: "Paperless Workflow", description: "Eliminate printed manuscripts entirely." },
   { title: "Role-Based Access Control", description: "Secure permissions for students, panelists, and staff." },
   { title: "Split-Screen Evaluation", description: "Simultaneous manuscript review and assessment." },
-  { title: "Rubric-Based Assessment", description: "Standardised, customisable scoring." },
+  { title: "Rubric-Based Assessment", description: "Standardized, customisable scoring." },
   { title: "Real-Time Feedback", description: "Instant comments and notifications." },
   { title: "Version Control", description: "Track every revision automatically." },
   { title: "Audit Trail Logging", description: "Complete activity logs for accreditation." },
