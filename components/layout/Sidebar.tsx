@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "hero", label: "AURORA" },   
+  { id: "hero", label: "AURORA" },
   { id: "chapter-1", label: "I. Introduction" },
   { id: "project-context", label: "Project Context" },
   { id: "purpose-description", label: "Purpose & Description" },
@@ -24,11 +24,8 @@ const sections = [
   { id: "system-architecture", label: "System Architecture" },
   { id: "software-requirements", label: "Software Requirements" },
   { id: "hardware-requirements", label: "Hardware Requirements" },
-  { id: "chapter-4", label: "IV. System Features" },
-  { id: "system-features", label: "Core Features" },
-  { id: "chapter-5", label: "V. Evaluation Plan" },
+  { id: "system-features", label: "System Features" },
   { id: "evaluation-plan", label: "Evaluation Plan" },
-  { id: "chapter-8", label: "VIII. Tech Stack Visualization" },
   { id: "technical-stack", label: "Technical Stack" },
   { id: "workflow", label: "Workflow" },
 ];

@@ -26,10 +26,9 @@ import SplitScreenPreview from "@/components/sections/SplitScreenPreview";
 export default function TitleDefensePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      {/* Hero */}
       <TitleHero />
 
-      {/* Chapter I */}
+      {/* Chapter I – Introduction */}
       <ChapterDivider id="chapter-1" number="I" title="Introduction" />
       <ProjectContext />
       <PurposeDescription />
@@ -38,7 +37,7 @@ export default function TitleDefensePage() {
       <SignificanceOfStudy />
       <DefinitionOfTerms />
 
-      {/* Chapter II */}
+      {/* Chapter II – Review of Related Literature */}
       <ChapterDivider id="chapter-2" number="II" title="Review of Related Literature" />
       <RoleBasedAccessControl />
       <AuthenticationIdentity />
@@ -49,7 +48,7 @@ export default function TitleDefensePage() {
       <SystemEvaluation />
       <GapBridged />
 
-      {/* Chapter III */}
+      {/* Chapter III – Technical Background */}
       <ChapterDivider id="chapter-3" number="III" title="Technical Background" />
       <SystemArchitecture />
 
@@ -67,19 +66,16 @@ export default function TitleDefensePage() {
       <SoftwareRequirements />
       <HardwareRequirements />
 
-      {/* Chapter IV */}
-      <ChapterDivider id="chapter-4" number="IV" title="System Features and Functionalities" />
+      {/* System Features (now under Chapter 3) */}
       <SystemFeatures />
 
-      {/* Chapter V */}
-      <ChapterDivider id="chapter-5" number="V" title="Evaluation Plan" />
+      {/* Evaluation Plan (under Chapter 3) */}
       <EvaluationPlan />
 
-      {/* Chapter VIII – Tech Stack Visualization */}
-      <ChapterDivider id="chapter-8" number="VIII" title="Technical Stack Visualization" />
+      {/* Technical Stack Visualization (under Chapter 3) */}
       <TechnicalStackVisualization />
 
-      {/* Workflow */}
+      {/* Workflow (under Chapter 3) */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700">
         <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-white">
           AURORA Workflow
