@@ -1,14 +1,25 @@
 "use client";
 
-import ThemeToggle from "../ui/ThemeToggle";
+import Image from "next/image";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700">
       <div className="max-w-[1340px] mx-auto px-4 h-full flex items-center justify-between">
-        <span className="text-lg font-bold text-royal dark:text-blue-300 font-display">
-          AURORA — Title Defense
-        </span>
+        <div className="flex items-center gap-3">
+          {/* Logo – adjust size and path as needed */}
+          <Image
+            src="/aurora-logo.png"
+            alt="AURORA Logo"
+            width={32}
+            height={32}
+            className="rounded"
+          />
+          <span className="text-lg font-bold text-royal dark:text-blue-300 font-display">
+            AURORA — Title Defense
+          </span>
+        </div>
         <ThemeToggle />
       </div>
     </header>
