@@ -14,22 +14,30 @@ export default function SoftwareRequirements() {
   return (
     <section id="software-requirements">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700">
-        <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-white">Software Requirements</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-white">Software Requirements</h2>
+        
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm md:text-base">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-700">
-                <th className="text-left py-2 font-semibold text-slate-900 dark:text-white">Software</th>
-                <th className="text-left py-2 font-semibold text-slate-900 dark:text-white">Specification</th>
-                <th className="text-left py-2 font-semibold text-slate-900 dark:text-white">Description</th>
+              <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white w-1/6">Software</th>
+                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white w-1/6">Specification</th>
+                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white w-4/6">Description</th>
               </tr>
             </thead>
             <tbody>
-              {software.map((s) => (
-                <tr key={s.software} className="border-b border-slate-100 dark:border-slate-700">
-                  <td className="py-2 text-slate-700 dark:text-slate-200 font-medium">{s.software}</td>
-                  <td className="py-2 text-slate-600 dark:text-slate-400">{s.spec}</td>
-                  <td className="py-2 text-slate-600 dark:text-slate-300">{s.desc}</td>
+              {software.map((s, idx) => (
+                <tr 
+                  key={s.software} 
+                  className={`border-b border-slate-100 dark:border-slate-700/50 ${
+                    idx % 2 === 0 
+                      ? "bg-white dark:bg-slate-800" 
+                      : "bg-slate-50 dark:bg-slate-700/30"
+                  }`}
+                >
+                  <td className="py-3 px-4 text-slate-700 dark:text-slate-200 font-medium">{s.software}</td>
+                  <td className="py-3 px-4 text-slate-600 dark:text-slate-400 font-mono text-xs md:text-sm">{s.spec}</td>
+                  <td className="py-3 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">{s.desc}</td>
                 </tr>
               ))}
             </tbody>
