@@ -13,6 +13,8 @@ import AuditTrail from "@/components/sections/AuditTrail";
 import SplitScreenWorkspace from "@/components/sections/SplitScreenWorkspace";
 import RubricBasedAssessment from "@/components/sections/RubricBasedAssessment";
 import SystemEvaluation from "@/components/sections/SystemEvaluation";
+import LocalThesisSystems from "@/components/sections/LocalThesisSystems";
+import ComparisonTable from "@/components/sections/ComparisonTable";
 import GapBridged from "@/components/sections/GapBridged";
 import SystemArchitecture from "@/components/sections/SystemArchitecture";
 import SoftwareRequirements from "@/components/sections/SoftwareRequirements";
@@ -22,7 +24,6 @@ import EvaluationPlan from "@/components/sections/EvaluationPlan";
 import TechnicalStackVisualization from "@/components/sections/TechnicalStackVisualization";
 import Workflow from "@/components/sections/Workflow";
 import SplitScreenPreview from "@/components/sections/SplitScreenPreview";
-import ComparisonTable from "@/components/sections/ComparisonTable";
 
 export default function TitleDefensePage() {
   return (
@@ -47,6 +48,8 @@ export default function TitleDefensePage() {
       <SplitScreenWorkspace />
       <RubricBasedAssessment />
       <SystemEvaluation />
+      <LocalThesisSystems />
+      <ComparisonTable />
       <GapBridged />
 
       {/* Chapter III – Technical Background */}
