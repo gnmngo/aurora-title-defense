@@ -19,6 +19,8 @@ const sections = [
   { id: "split-screen-workspace", label: "Split-Screen Workspace" },
   { id: "rubric-assessment", label: "Rubric-Based Assessment" },
   { id: "system-evaluation", label: "System Evaluation" },
+  { id: "local-thesis-systems", label: "Local Thesis & Capstone Systems" },
+  { id: "comparison-table", label: "Comparison with Existing Systems" },
   { id: "gap-bridged", label: "Gap Bridged by the Study" },
   { id: "chapter-3", label: "III. Technical Background", isChapter: true },
   { id: "system-architecture", label: "System Architecture" },

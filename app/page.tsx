@@ -22,6 +22,7 @@ import EvaluationPlan from "@/components/sections/EvaluationPlan";
 import TechnicalStackVisualization from "@/components/sections/TechnicalStackVisualization";
 import Workflow from "@/components/sections/Workflow";
 import SplitScreenPreview from "@/components/sections/SplitScreenPreview";
+import ComparisonTable from "@/components/sections/ComparisonTable";
 
 export default function TitleDefensePage() {
   return (
