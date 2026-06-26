@@ -29,6 +29,70 @@ const synthesisItems = [
   },
 ];
 
+// List of important keywords to highlight (case‑insensitive matching)
+const highlightKeywords = [
+  "Ferraiolo and Kuhn",
+  "Bihary & Shrader",
+  "Sherman & Freeman",
+  "Kamal",
+  "ISO/IEC 27001",
+  "RBAC",
+  "Sweller",
+  "Cognitive Load Theory",
+  "Kellett",
+  "Kavadlo",
+  "CSCW",
+  "Grudin",
+  "Molinatto",
+  "Erradi",
+  "Spady",
+  "OBE",
+  "Azmi",
+  "Chio et al.",
+  "Kurniawan et al.",
+  "Black & Wiliam",
+  "Formative Assessment",
+  "Venkatesh et al.",
+  "UTAUT",
+  "Tatlı et al.",
+  "Brooke",
+  "SUS",
+  "Sauro & Lewis",
+  "Bangor et al.",
+  "TAM",
+  "Davis",
+  "Performance Expectancy",
+  "Effort Expectancy",
+];
+
+function highlightText(text: string) {
+  if (!text) return null;
+  // Escape special regex characters in each keyword and join with pipe
+  const escapedKeywords = highlightKeywords.map((kw) =>
+    kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+  );
+  const pattern = new RegExp(`(${escapedKeywords.join("|")})`, "gi");
+  const parts = text.split(pattern);
+
+  return parts.map((part, i) => {
+    // Check if this part matches any keyword (case‑insensitive)
+    const isKeyword = highlightKeywords.some(
+      (kw) => kw.toLowerCase() === part.toLowerCase()
+    );
+    if (isKeyword) {
+      return (
+        <strong
+          key={i}
+          className="text-royal dark:text-blue-300 font-semibold"
+        >
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Synthesis() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -74,14 +138,16 @@ export default function Synthesis() {
                 </svg>
               </button>
 
-              {/* Expanded full text */}
+              {/* Expanded full text with highlights */}
               <div
                 className={`transition-all duration-300 ease-in-out ${
                   expandedIndex === idx ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
                 <div className="px-5 py-4 bg-white dark:bg-slate-800">
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{item.full}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {highlightText(item.full)}
+                  </p>
                 </div>
               </div>
             </div>
