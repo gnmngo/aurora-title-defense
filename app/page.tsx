@@ -6,15 +6,12 @@ import Objectives from "@/components/sections/Objectives";
 import ScopeLimitations from "@/components/sections/ScopeLimitations";
 import SignificanceOfStudy from "@/components/sections/SignificanceOfStudy";
 import DefinitionOfTerms from "@/components/sections/DefinitionOfTerms";
-import RoleBasedAccessControl from "@/components/sections/RoleBasedAccessControl";
-import AuthenticationIdentity from "@/components/sections/AuthenticationIdentity";
-import InformationSecurity from "@/components/sections/InformationSecurity";
-import AuditTrail from "@/components/sections/AuditTrail";
-import SplitScreenWorkspace from "@/components/sections/SplitScreenWorkspace";
-import RubricBasedAssessment from "@/components/sections/RubricBasedAssessment";
-import SystemEvaluation from "@/components/sections/SystemEvaluation";
-import LocalThesisSystems from "@/components/sections/LocalThesisSystems";
-import ComparisonTable from "@/components/sections/ComparisonTable";
+import RRL_RoleBasedAccess from "@/components/sections/RRL_RoleBasedAccess";
+import RRL_SplitScreenWorkspace from "@/components/sections/RRL_SplitScreenWorkspace";
+import RRL_RubricBasedAssessment from "@/components/sections/RRL_RubricBasedAssessment";
+import RRL_SystemEvaluation from "@/components/sections/RRL_SystemEvaluation";
+import RRL_LocalStudies from "@/components/sections/RRL_LocalStudies";
+import Synthesis from "@/components/sections/Synthesis";
 import GapBridged from "@/components/sections/GapBridged";
 import SystemArchitecture from "@/components/sections/SystemArchitecture";
 import SoftwareRequirements from "@/components/sections/SoftwareRequirements";
@@ -30,7 +27,7 @@ export default function TitleDefensePage() {
     <div className="max-w-4xl mx-auto space-y-8">
       <TitleHero />
 
-      {/* Chapter I – Introduction */}
+      {/* Chapter I */}
       <ChapterDivider id="chapter-1" number="I" title="Introduction" />
       <ProjectContext />
       <PurposeDescription />
@@ -39,24 +36,19 @@ export default function TitleDefensePage() {
       <SignificanceOfStudy />
       <DefinitionOfTerms />
 
-      {/* Chapter II – Review of Related Literature */}
+      {/* Chapter II */}
       <ChapterDivider id="chapter-2" number="II" title="Review of Related Literature" />
-      <RoleBasedAccessControl />
-      <AuthenticationIdentity />
-      <InformationSecurity />
-      <AuditTrail />
-      <SplitScreenWorkspace />
-      <RubricBasedAssessment />
-      <SystemEvaluation />
-      <LocalThesisSystems />
-      <ComparisonTable />
+      <RRL_RoleBasedAccess />
+      <RRL_SplitScreenWorkspace />
+      <RRL_RubricBasedAssessment />
+      <RRL_SystemEvaluation />
+      <RRL_LocalStudies />
+      <Synthesis />
       <GapBridged />
 
-      {/* Chapter III – Technical Background */}
+      {/* Chapter III */}
       <ChapterDivider id="chapter-3" number="III" title="Technical Background" />
       <SystemArchitecture />
-
-      {/* Split‑Screen preview */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700">
         <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-white">
           Split‑Screen Workspace Preview
@@ -66,20 +58,11 @@ export default function TitleDefensePage() {
         </p>
         <SplitScreenPreview />
       </div>
-
       <SoftwareRequirements />
       <HardwareRequirements />
-
-      {/* System Features (now under Chapter 3) */}
       <SystemFeatures />
-
-      {/* Evaluation Plan (under Chapter 3) */}
       <EvaluationPlan />
-
-      {/* Technical Stack Visualization (under Chapter 3) */}
       <TechnicalStackVisualization />
-
-      {/* Workflow (under Chapter 3) */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700">
         <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-white">
           AURORA Workflow
