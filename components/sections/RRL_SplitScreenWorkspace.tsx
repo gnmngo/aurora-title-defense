@@ -1,11 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import SplitScreenWorkspace from "./SplitScreenWorkspace";
-
 export default function RRL_SplitScreenWorkspace() {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <section id="rrl-split-screen">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -14,44 +7,31 @@ export default function RRL_SplitScreenWorkspace() {
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">
             Split‑Screen Annotation Workspace
           </h2>
-          <p className="text-sm text-royal dark:text-blue-300 font-medium mb-4">Specific Objective 2</p>
-          <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-            This objective aims to develop a dual‑pane interface that allows simultaneous manuscript
-            review and evaluation. The subsections below provide the theoretical foundation – from
-            cognitive load reduction to collaborative work – that justifies this design choice.
-          </p>
+          <p className="text-sm text-royal dark:text-blue-300 font-medium mb-6">Specific Objective 2</p>
 
-          <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="w-full text-left px-5 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
-            >
-              <div>
-                <span className="text-xs font-mono text-slate-400 dark:text-slate-500 mr-2">2.2.1–2.2.4</span>
-                <span className="font-medium text-slate-900 dark:text-white">
-                  Cognitive Load Theory, CSCW, HCI, Document Review Interfaces
-                </span>
-              </div>
-              <svg
-                className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {expanded && (
-              <div className="px-5 py-4 bg-white dark:bg-slate-800">
-                <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                  The literature is organised into four themes: Cognitive Load Theory, Computer‑Supported
-                  Cooperative Work, Human‑Computer Interaction, and Document Review Interfaces. Together
-                  they demonstrate that an integrated, split‑screen environment reduces mental effort,
-                  supports collaborative annotation, and improves review quality.
-                </p>
-                <SplitScreenWorkspace />
-              </div>
-            )}
+          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
+            <p>
+              <strong className="text-slate-900 dark:text-white">Sweller’s (1988) Cognitive Load Theory</strong>
+              provides the central justification for AURORA’s split‑screen interface: the split‑attention
+              effect forces panelists to mentally integrate manuscripts and evaluation forms, increasing
+              extraneous load. By presenting both panels simultaneously,{" "}
+              <span className="text-royal dark:text-blue-300 font-medium">AURORA reduces cognitive effort</span>{" "}
+              and improves review efficiency.
+            </p>
+            <p>
+              Studies on <strong>Hypertext navigation (Kellett, 1989)</strong> and electronic feedback
+              (<strong>Kavadlo, 2013</strong>) show that integrated interfaces and annotation reduce mental
+              strain. <strong>Computer‑Supported Cooperative Work</strong> research (<strong>Grudin, 1994</strong>)
+              confirms that real‑time annotation and presence awareness support collaborative evaluation.
+              Practical implementations like <strong>EasyCapstone (Erradi, 2012)</strong> and findings from
+              <strong> Molinatto (2025)</strong> further validate that unified workspaces enhance user
+              satisfaction and consistency.
+            </p>
+            <p>
+              AURORA’s interface also follows <strong className="text-slate-900 dark:text-white">user‑centered design</strong>{" "}
+              principles, with card‑based layouts (<strong>Molinatto, 2025</strong>) and responsive behaviour
+              (<strong>Kurniawan et al., 2021</strong>) that have been shown to improve adoption.
+            </p>
           </div>
         </div>
       </div>

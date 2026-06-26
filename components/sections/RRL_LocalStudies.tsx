@@ -1,12 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import LocalThesisSystems from "./LocalThesisSystems";
-import ComparisonTable from "./ComparisonTable";
-
 export default function RRL_LocalStudies() {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <section id="rrl-local-studies">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -15,39 +7,27 @@ export default function RRL_LocalStudies() {
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">
             Local Thesis and Capstone Management Systems
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Related Philippine Studies</p>
-          <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-            A review of Philippine systems (THESIST, REPOCAP, AcademiaVault) provides context for
-            AURORA’s innovation. While these platforms offer digital repositories and scheduling, none
-            combine split‑screen annotation, rubric‑based auto‑scoring, and theory‑driven evaluation
-            in one integrated solution.
-          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">Related Philippine Studies</p>
 
-          <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="w-full text-left px-5 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
-            >
-              <div>
-                <span className="font-medium text-slate-900 dark:text-white">
-                  View detailed systems and comparison table
-                </span>
-              </div>
-              <svg
-                className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {expanded && (
-              <div className="px-5 py-4 bg-white dark:bg-slate-800 space-y-4">
-                <LocalThesisSystems />
-                <ComparisonTable />
-              </div>
-            )}
+          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
+            <p>
+              Philippine HEIs have developed systems such as <strong className="text-slate-900 dark:text-white">THESIST</strong>{" "}
+              (USTP, automated scheduling via genetic algorithm),{" "}
+              <strong className="text-slate-900 dark:text-white">REPOCAP</strong> (Mabalacat City College,
+              four‑access‑level repository), and{" "}
+              <strong className="text-slate-900 dark:text-white">AcademiaVault</strong> (MCC, digital repository
+              with ISO 25010 evaluation). These systems successfully digitise document storage and basic
+              workflows.
+            </p>
+            <p>
+              However, <span className="text-royal dark:text-blue-300 font-medium">none of them</span> offers
+              the integrated innovations that define AURORA: a{" "}
+              <strong className="text-slate-900 dark:text-white">split‑screen annotation workspace</strong>,{" "}
+              <strong className="text-slate-900 dark:text-white">rubric‑based auto‑scoring</strong>, and a
+              systematic evaluation grounded in <strong>UTAUT</strong> and <strong>SUS</strong>. Furthermore,
+              AURORA’s modern stack (Next.js, TypeScript, Supabase) ensures scalability and maintainability
+              beyond what older PHP‑based implementations can provide.
+            </p>
           </div>
         </div>
       </div>

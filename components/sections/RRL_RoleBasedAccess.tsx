@@ -1,53 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import RoleBasedAccessControl from "./RoleBasedAccessControl";
-import AuthenticationIdentity from "./AuthenticationIdentity";
-import InformationSecurity from "./InformationSecurity";
-import AuditTrail from "./AuditTrail";
-
-const subsections = [
-  {
-    id: "rrl-2-1-1",
-    number: "2.1.1",
-    title: "Role‑Based Access Control (RBAC) Framework",
-    summary:
-      "Ferraiolo and Kuhn (1992) established RBAC as a non‑discretionary access control method. Subsequent studies (Bihary & Shrader, 1994; Sherman & Freeman, 2007; Kamal, 2021) confirmed that role‑based access reduces security breaches and simplifies administration in paperless environments. These findings provide the blueprint for AURORA’s three‑role structure, ensuring that students, panelists, and administrators have precisely the access they need.",
-    component: RoleBasedAccessControl,
-  },
-  {
-    id: "rrl-2-1-2",
-    number: "2.1.2",
-    title: "Authentication and Identity Management",
-    summary:
-      "Research on e‑thesis systems (Bajrami, 2024), paperless meeting management (Perera, 2018), and thesis portals (Chio et al., 2022; Molinatto, 2025) consistently shows that secure, university‑credential‑based authentication is essential. AURORA adopts this model to verify users through the institution’s existing identity system, guaranteeing that only authorized individuals can access sensitive defense records.",
-    component: AuthenticationIdentity,
-  },
-  {
-    id: "rrl-2-1-3",
-    number: "2.1.3",
-    title: "Information Security Standards and Compliance",
-    summary:
-      "ISO/IEC 27001:2022 outlines international best practices for information security. Studies by Bihary & Shrader (1994) and Isaeva & Yoon (2016) stress that security must be embedded into system architecture. AURORA aligns with these standards, embedding security controls from the ground up.",
-    component: InformationSecurity,
-  },
-  {
-    id: "rrl-2-1-4",
-    number: "2.1.4",
-    title: "Audit Trail and Accountability",
-    summary:
-      "ISO/IEC 27001 Section 8.15 requires logging of all significant events, and studies (Bihary & Shrader, 1994; Sherman & Freeman, 2007; Drake et al., 1992) demonstrate that audit trails are essential for accountability and compliance. AURORA logs every submission, evaluation, and workflow change, creating a verifiable record for accreditation.",
-    component: AuditTrail,
-  },
-];
-
 export default function RRL_RoleBasedAccess() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  const toggle = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
-
   return (
     <section id="rrl-role-based-access">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -56,52 +7,34 @@ export default function RRL_RoleBasedAccess() {
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">
             Role‑Based Access Control System
           </h2>
-          <p className="text-sm text-royal dark:text-blue-300 font-medium mb-4">Specific Objective 1</p>
-          <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-            This objective aims to design a secure access system for three user roles. The subsections
-            below cover the foundational framework, authentication, security standards, and accountability
-            mechanisms that directly inform AURORA’s RBAC implementation.
-          </p>
+          <p className="text-sm text-royal dark:text-blue-300 font-medium mb-6">Specific Objective 1</p>
 
-          {/* Subsections */}
-          <div className="space-y-3">
-            {subsections.map((sub) => (
-              <div
-                key={sub.id}
-                className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
-              >
-                <button
-                  onClick={() => toggle(sub.id)}
-                  className="w-full text-left px-5 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
-                >
-                  <div>
-                    <span className="text-xs font-mono text-slate-400 dark:text-slate-500 mr-2">
-                      {sub.number}
-                    </span>
-                    <span className="font-medium text-slate-900 dark:text-white">{sub.title}</span>
-                  </div>
-                  <svg
-                    className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
-                      expandedId === sub.id ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {expandedId === sub.id && (
-                  <div className="px-5 py-4 bg-white dark:bg-slate-800 space-y-4">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {sub.summary}
-                    </p>
-                    {/* The full literature card with hover effects and Relevance box */}
-                    <sub.component />
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
+            <p>
+              <strong className="text-slate-900 dark:text-white">Ferraiolo and Kuhn (1992)</strong> established
+              Role‑Based Access Control as a non‑discretionary method that grants permissions based on
+              organisational roles—an approach ideally suited for academic institutions with clear hierarchies.
+              Subsequent research on paperless systems
+              (<strong>Bihary & Shrader, 1994</strong>; <strong>Sherman & Freeman, 2007</strong>;{" "}
+              <strong>Kamal, 2021</strong>) confirmed that well‑defined access controls reduce security
+              breaches and simplify administration.
+            </p>
+            <p>
+              For <span className="text-royal dark:text-blue-300 font-medium">AURORA</span>, these findings
+              directly inform the design of a <strong className="text-slate-900 dark:text-white">three‑role structure</strong>—
+              Student, Panelist, and System Administrator—each with permissions scoped to their
+              responsibilities. <strong>Bajrami (2024)</strong> and <strong>Chio et al. (2022)</strong> demonstrated
+              that university‑credential‑based authentication protects sensitive academic documents, a model
+              AURORA adopts by integrating with PSU’s existing identity system.
+            </p>
+            <p>
+              <strong className="text-slate-900 dark:text-white">ISO/IEC 27001:2022</strong> provides the
+              security framework, and studies by <strong>Isaeva & Yoon (2016)</strong> stress that security
+              must be built into the architecture from the start. AURORA embeds these controls, while
+              <strong className="text-slate-900 dark:text-white"> audit trail requirements</strong> (ISO 27001
+              §8.15) are met through comprehensive logging of all submissions, evaluations, and workflow
+              changes, ensuring <span className="text-royal dark:text-blue-300 font-medium">accreditation‑ready accountability</span>.
+            </p>
           </div>
         </div>
       </div>
