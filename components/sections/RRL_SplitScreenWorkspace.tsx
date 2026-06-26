@@ -1,4 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import SplitScreenWorkspace from "./SplitScreenWorkspace";
+
 export default function RRL_SplitScreenWorkspace() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="rrl-split-screen">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -9,30 +16,33 @@ export default function RRL_SplitScreenWorkspace() {
           </h2>
           <p className="text-sm text-royal dark:text-blue-300 font-medium mb-6">Specific Objective 2</p>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
-            <p>
-              <strong className="text-slate-900 dark:text-white">Sweller’s (1988) Cognitive Load Theory</strong>
-              provides the central justification for AURORA’s split‑screen interface: the split‑attention
-              effect forces panelists to mentally integrate manuscripts and evaluation forms, increasing
-              extraneous load. By presenting both panels simultaneously,{" "}
-              <span className="text-royal dark:text-blue-300 font-medium">AURORA reduces cognitive effort</span>{" "}
-              and improves review efficiency.
-            </p>
-            <p>
-              Studies on <strong>Hypertext navigation (Kellett, 1989)</strong> and electronic feedback
-              (<strong>Kavadlo, 2013</strong>) show that integrated interfaces and annotation reduce mental
-              strain. <strong>Computer‑Supported Cooperative Work</strong> research (<strong>Grudin, 1994</strong>)
-              confirms that real‑time annotation and presence awareness support collaborative evaluation.
-              Practical implementations like <strong>EasyCapstone (Erradi, 2012)</strong> and findings from
-              <strong> Molinatto (2025)</strong> further validate that unified workspaces enhance user
-              satisfaction and consistency.
-            </p>
-            <p>
-              AURORA’s interface also follows <strong className="text-slate-900 dark:text-white">user‑centered design</strong>{" "}
-              principles, with card‑based layouts (<strong>Molinatto, 2025</strong>) and responsive behaviour
-              (<strong>Kurniawan et al., 2021</strong>) that have been shown to improve adoption.
-            </p>
-          </div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="w-full text-left px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700/50
+                       border border-slate-200 dark:border-slate-600
+                       hover:bg-slate-100 dark:hover:bg-slate-700
+                       hover:border-royal/30 dark:hover:border-blue-400/30
+                       transition-all duration-200"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-medium text-slate-900 dark:text-white text-sm">
+                <span className="text-xs font-mono text-slate-400 dark:text-slate-500 mr-2">2.2.1–2.2.4</span>
+                Cognitive Load Theory, CSCW, HCI, Document Review Interfaces
+              </span>
+              <svg
+                className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+
+          {open && (
+            <div className="mt-2">
+              <SplitScreenWorkspace />
+            </div>
+          )}
         </div>
       </div>
     </section>

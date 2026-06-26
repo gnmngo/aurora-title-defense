@@ -1,4 +1,25 @@
+"use client";
+
+import { useState } from "react";
+import RoleBasedAccessControl from "./RoleBasedAccessControl";
+import AuthenticationIdentity from "./AuthenticationIdentity";
+import InformationSecurity from "./InformationSecurity";
+import AuditTrail from "./AuditTrail";
+
+const subsections = [
+  { number: "2.1.1", title: "Role‑Based Access Control (RBAC) Framework", Component: RoleBasedAccessControl },
+  { number: "2.1.2", title: "Authentication and Identity Management", Component: AuthenticationIdentity },
+  { number: "2.1.3", title: "Information Security Standards and Compliance", Component: InformationSecurity },
+  { number: "2.1.4", title: "Audit Trail and Accountability", Component: AuditTrail },
+];
+
 export default function RRL_RoleBasedAccess() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggle = (idx: number) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
+
   return (
     <section id="rrl-role-based-access">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -9,32 +30,40 @@ export default function RRL_RoleBasedAccess() {
           </h2>
           <p className="text-sm text-royal dark:text-blue-300 font-medium mb-6">Specific Objective 1</p>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
-            <p>
-              <strong className="text-slate-900 dark:text-white">Ferraiolo and Kuhn (1992)</strong> established
-              Role‑Based Access Control as a non‑discretionary method that grants permissions based on
-              organisational roles—an approach ideally suited for academic institutions with clear hierarchies.
-              Subsequent research on paperless systems
-              (<strong>Bihary & Shrader, 1994</strong>; <strong>Sherman & Freeman, 2007</strong>;{" "}
-              <strong>Kamal, 2021</strong>) confirmed that well‑defined access controls reduce security
-              breaches and simplify administration.
-            </p>
-            <p>
-              For <span className="text-royal dark:text-blue-300 font-medium">AURORA</span>, these findings
-              directly inform the design of a <strong className="text-slate-900 dark:text-white">three‑role structure</strong>—
-              Student, Panelist, and System Administrator—each with permissions scoped to their
-              responsibilities. <strong>Bajrami (2024)</strong> and <strong>Chio et al. (2022)</strong> demonstrated
-              that university‑credential‑based authentication protects sensitive academic documents, a model
-              AURORA adopts by integrating with PSU’s existing identity system.
-            </p>
-            <p>
-              <strong className="text-slate-900 dark:text-white">ISO/IEC 27001:2022</strong> provides the
-              security framework, and studies by <strong>Isaeva & Yoon (2016)</strong> stress that security
-              must be built into the architecture from the start. AURORA embeds these controls, while
-              <strong className="text-slate-900 dark:text-white"> audit trail requirements</strong> (ISO 27001
-              §8.15) are met through comprehensive logging of all submissions, evaluations, and workflow
-              changes, ensuring <span className="text-royal dark:text-blue-300 font-medium">accreditation‑ready accountability</span>.
-            </p>
+          <div className="space-y-2">
+            {subsections.map((sub, idx) => (
+              <div key={sub.number}>
+                {/* Toggle header – not a card, just a clickable bar */}
+                <button
+                  onClick={() => toggle(idx)}
+                  className="w-full text-left px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700/50
+                             border border-slate-200 dark:border-slate-600
+                             hover:bg-slate-100 dark:hover:bg-slate-700
+                             hover:border-royal/30 dark:hover:border-blue-400/30
+                             transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-slate-900 dark:text-white text-sm">
+                      <span className="text-xs font-mono text-slate-400 dark:text-slate-500 mr-2">{sub.number}</span>
+                      {sub.title}
+                    </span>
+                    <svg
+                      className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+
+                {/* Expanded content – the original card, no extra wrapper */}
+                {openIndex === idx && (
+                  <div className="mt-2">
+                    <sub.Component />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

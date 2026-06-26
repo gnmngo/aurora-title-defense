@@ -1,4 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import SystemEvaluation from "./SystemEvaluation";
+
 export default function RRL_SystemEvaluation() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="rrl-system-evaluation">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -9,29 +16,33 @@ export default function RRL_SystemEvaluation() {
           </h2>
           <p className="text-sm text-royal dark:text-blue-300 font-medium mb-6">Specific Objective 4</p>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
-            <p>
-              <strong className="text-slate-900 dark:text-white">Venkatesh et al. (2003)</strong> developed the
-              Unified Theory of Acceptance and Use of Technology (UTAUT), identifying performance expectancy
-              and effort expectancy as the strongest predictors of technology adoption.{" "}
-              <strong>Tatlı et al. (2024)</strong> validated UTAUT on paperless technologies in 13 Turkish
-              universities, confirming that these factors explain 75% of usage intention.
-            </p>
-            <p>
-              The <strong className="text-slate-900 dark:text-white">Technology Acceptance Model (TAM)</strong>{" "}
-              (<strong>Davis, 1989</strong>; <strong>Venkatesh & Davis, 2000</strong>) complements UTAUT by
-              highlighting perceived usefulness and ease of use. Both models will be applied in AURORA’s
-              evaluation to ensure <span className="text-royal dark:text-blue-300 font-medium">comprehensive acceptance measurement</span>.
-            </p>
-            <p>
-              The <strong className="text-slate-900 dark:text-white">System Usability Scale (SUS)</strong>{" "}
-              (<strong>Brooke, 1996</strong>) provides a reliable benchmark (average score 68). AURORA targets
-              a SUS score ≥ 68, following the guidelines of <strong>Sauro & Lewis (2016)</strong> and{" "}
-              <strong>Bangor et al. (2009)</strong> for interpretation. Usability testing will involve{" "}
-              <strong>15–20 representative users</strong> performing structured tasks, consistent with sample
-              size recommendations by <strong>Nielsen (1993)</strong> and <strong>Lewis (2024)</strong>.
-            </p>
-          </div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="w-full text-left px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700/50
+                       border border-slate-200 dark:border-slate-600
+                       hover:bg-slate-100 dark:hover:bg-slate-700
+                       hover:border-royal/30 dark:hover:border-blue-400/30
+                       transition-all duration-200"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-medium text-slate-900 dark:text-white text-sm">
+                <span className="text-xs font-mono text-slate-400 dark:text-slate-500 mr-2">2.4.1–2.4.5</span>
+                UTAUT, TAM, SUS, Usability Testing Methods, User Acceptance Testing
+              </span>
+              <svg
+                className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+
+          {open && (
+            <div className="mt-2">
+              <SystemEvaluation />
+            </div>
+          )}
         </div>
       </div>
     </section>

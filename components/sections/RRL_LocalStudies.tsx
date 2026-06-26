@@ -1,4 +1,12 @@
+"use client";
+
+import { useState } from "react";
+import LocalThesisSystems from "./LocalThesisSystems";
+import ComparisonTable from "./ComparisonTable";
+
 export default function RRL_LocalStudies() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="rrl-local-studies">
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden">
@@ -9,26 +17,33 @@ export default function RRL_LocalStudies() {
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">Related Philippine Studies</p>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
-            <p>
-              Philippine HEIs have developed systems such as <strong className="text-slate-900 dark:text-white">THESIST</strong>{" "}
-              (USTP, automated scheduling via genetic algorithm),{" "}
-              <strong className="text-slate-900 dark:text-white">REPOCAP</strong> (Mabalacat City College,
-              four‑access‑level repository), and{" "}
-              <strong className="text-slate-900 dark:text-white">AcademiaVault</strong> (MCC, digital repository
-              with ISO 25010 evaluation). These systems successfully digitise document storage and basic
-              workflows.
-            </p>
-            <p>
-              However, <span className="text-royal dark:text-blue-300 font-medium">none of them</span> offers
-              the integrated innovations that define AURORA: a{" "}
-              <strong className="text-slate-900 dark:text-white">split‑screen annotation workspace</strong>,{" "}
-              <strong className="text-slate-900 dark:text-white">rubric‑based auto‑scoring</strong>, and a
-              systematic evaluation grounded in <strong>UTAUT</strong> and <strong>SUS</strong>. Furthermore,
-              AURORA’s modern stack (Next.js, TypeScript, Supabase) ensures scalability and maintainability
-              beyond what older PHP‑based implementations can provide.
-            </p>
-          </div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="w-full text-left px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700/50
+                       border border-slate-200 dark:border-slate-600
+                       hover:bg-slate-100 dark:hover:bg-slate-700
+                       hover:border-royal/30 dark:hover:border-blue-400/30
+                       transition-all duration-200"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-medium text-slate-900 dark:text-white text-sm">
+                THESIST, REPOCAP, AcademiaVault – View detailed systems and comparison
+              </span>
+              <svg
+                className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+
+          {open && (
+            <div className="mt-2 space-y-4">
+              <LocalThesisSystems />
+              <ComparisonTable />
+            </div>
+          )}
         </div>
       </div>
     </section>
