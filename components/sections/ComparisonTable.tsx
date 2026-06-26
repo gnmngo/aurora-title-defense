@@ -11,6 +11,13 @@ const DashIcon = () => (
   </svg>
 );
 
+// Dedicated edge icon – no auto margin, for use in the left‑aligned list
+const EdgeCheckIcon = () => (
+  <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+  </svg>
+);
+
 const features = [
   {
     feature: "Centralized Repository",
@@ -116,7 +123,7 @@ export default function ComparisonTable() {
           </table>
         </div>
 
-        {/* AURORA Edge box */}
+        {/* AURORA Edge box – now aligned */}
         <div className="mt-8 p-5 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-royal rounded-l-xl" />
           <div className="ml-3">
@@ -124,24 +131,24 @@ export default function ComparisonTable() {
               The AURORA Edge
             </h3>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <li className="flex items-start gap-2">
-                <CheckIcon />
+              <li className="flex items-start gap-2.5">
+                <EdgeCheckIcon />
                 <span><strong className="text-slate-900 dark:text-white">Split‑Screen Workspace</strong> – the first system to apply Cognitive Load Theory, reducing panelist fatigue and improving review quality.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckIcon />
+              <li className="flex items-start gap-2.5">
+                <EdgeCheckIcon />
                 <span><strong className="text-slate-900 dark:text-white">Rubric‑Based Auto‑Scoring</strong> – ensures consistent, transparent evaluation without manual calculation.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckIcon />
+              <li className="flex items-start gap-2.5">
+                <EdgeCheckIcon />
                 <span><strong className="text-slate-900 dark:text-white">Real‑Time Feedback</strong> – panelist comments are instantly available, supporting iterative learning.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckIcon />
+              <li className="flex items-start gap-2.5">
+                <EdgeCheckIcon />
                 <span><strong className="text-slate-900 dark:text-white">Modern Tech Stack</strong> – Next.js, React, TypeScript, and Supabase provide scalability, security, and long‑term maintainability.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckIcon />
+              <li className="flex items-start gap-2.5">
+                <EdgeCheckIcon />
                 <span><strong className="text-slate-900 dark:text-white">Theory‑Driven Evaluation</strong> – UTAUT and SUS guide user acceptance and usability testing, adding academic rigor.</span>
               </li>
             </ul>
