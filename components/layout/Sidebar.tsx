@@ -27,6 +27,7 @@ const sections = [
   { id: "evaluation-plan", label: "Evaluation Plan" },
   { id: "technical-stack", label: "Technical Stack" },
   { id: "workflow", label: "Workflow" },
+  { id: "comparative-analysis", label: "Comparative Analysis" },
 ];
 
 export default function Sidebar({ onNavigate }: { onNavigate?: () => void }) {

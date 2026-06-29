@@ -21,6 +21,7 @@ import EvaluationPlan from "@/components/sections/EvaluationPlan";
 import TechnicalStackVisualization from "@/components/sections/TechnicalStackVisualization";
 import Workflow from "@/components/sections/Workflow";
 import SplitScreenPreview from "@/components/sections/SplitScreenPreview";
+import ComparativeAnalysis from "@/components/sections/ComparativeAnalysis";
 
 export default function TitleDefensePage() {
   return (
@@ -69,6 +70,9 @@ export default function TitleDefensePage() {
         </h2>
         <Workflow />
       </div>
+
+      {/* Comparative Analysis – new section */}
+      <ComparativeAnalysis />
     </div>
   );
 }
